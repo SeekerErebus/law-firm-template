@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const attorneys = [
+  {
+    name: "Sarah Bridger",
+    title: "Founding Partner",
+    initials: "SB",
+    focus: "Personal Injury, Medical Malpractice",
+    education: "J.D., University of Utah S.J. Quinney College of Law",
+    bar: "Utah State Bar, U.S. District Court for the District of Utah",
+    bio: "Sarah founded Bridger & Associates in 2005 with a singular mission: to provide individuals injured by negligence with the same caliber of legal representation available to large corporations. She has personally recovered over $30 million for her clients and has been named a Mountain States Super Lawyer every year since 2014.",
+    years: "20+ years of practice"
+  },
+  {
+    name: "Michael Chen",
+    title: "Partner — Family Law",
+    initials: "MC",
+    focus: "Family Law, Divorce, Custody",
+    education: "J.D., Brigham Young University J. Reuben Clark Law School",
+    bar: "Utah State Bar, Certified Family Law Specialist",
+    bio: "Michael brings compassion and strategic precision to every family law case. A certified family law specialist, he is known for his ability to achieve favorable outcomes in high-conflict custody disputes and complex property divisions. He serves on the Utah State Bar's Family Law Section executive committee.",
+    years: "15+ years of practice"
+  },
+  {
+    name: "Robert Vasquez",
+    title: "Partner — Litigation",
+    initials: "RV",
+    focus: "Business Litigation, Real Estate",
+    education: "J.D., Georgetown University Law Center",
+    bar: "Utah State Bar, Colorado State Bar, U.S. Court of Appeals for the Tenth Circuit",
+    bio: "Robert is a seasoned litigator who represents businesses and individuals in complex commercial disputes. Before joining Bridger & Associates, he spent eight years at a national firm handling multi-million dollar cases. He brings big-firm experience with small-firm attention to each client.",
+    years: "18+ years of practice"
+  },
+  {
+    name: "Catherine Park",
+    title: "Senior Associate",
+    initials: "CP",
+    focus: "Criminal Defense, Estate Planning",
+    education: "J.D., University of Utah S.J. Quinney College of Law",
+    bar: "Utah State Bar, National Association of Criminal Defense Lawyers",
+    bio: "Catherine is a tenacious criminal defense attorney who previously served as an assistant public defender for Salt Lake County, handling over 500 cases in three years. She also maintains a thriving estate planning practice, helping families secure their legacies. Clients know her for her candor and her tireless work ethic.",
+    years: "10+ years of practice"
+  }
+];
+---
+
+<BaseLayout
+  title="Our Attorneys | Bridger & Associates"
+  description="Meet the experienced attorneys at Bridger & Associates. Our Salt Lake City legal team brings decades of combined experience in personal injury, family law, litigation, criminal defense, and more."
+>
+  <!-- Hero -->
+  <section class="bg-navy-950 text-white hero-pattern">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-20 relative z-10">
+      <p class="section-label text-gold-400 mb-4">Our Team</p>
+      <h1 class="font-display text-4xl md:text-5xl leading-tight mb-4">Meet Our Attorneys</h1>
+      <p class="text-white/60 max-w-xl leading-relaxed">
+        Our team combines decades of experience with a shared commitment to client-focused, results-driven representation.
+      </p>
+    </div>
+    <div class="h-1 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600"></div>
+  </section>
+
+  <!-- Attorney Bios -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+      {attorneys.map((attorney, i) => (
+        <div class="reveal">
+          <div class="bg-white rounded-lg border border-navy-100/50 overflow-hidden">
+            <div class="md:flex">
+              <!-- Photo placeholder -->
+              <div class="md:w-64 flex-shrink-0 bg-navy-100 flex items-center justify-center py-12 md:py-0">
+                <div class="w-28 h-28 bg-navy-950 rounded-full flex items-center justify-center">
+                  <span class="text-3xl font-bold text-gold-400 font-display">{attorney.initials}</span>
+                </div>
+              </div>
+              <!-- Bio -->
+              <div class="p-6 md:p-8 flex-1">
+                <div class="mb-4">
+                  <h2 class="font-display text-2xl text-navy-950 mb-1">{attorney.name}</h2>
+                  <p class="text-gold-600 font-semibold text-sm">{attorney.title}</p>
+                </div>
+                <p class="text-navy-500 text-[0.9rem] leading-relaxed mb-5">{attorney.bio}</p>
+                <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p class="text-navy-400 text-xs font-semibold uppercase tracking-wider mb-1">Focus Areas</p>
+                    <p class="text-navy-700">{attorney.focus}</p>
+                  </div>
+                  <div>
+                    <p class="text-navy-400 text-xs font-semibold uppercase tracking-wider mb-1">Experience</p>
+                    <p class="text-navy-700">{attorney.years}</p>
+                  </div>
+                  <div>
+                    <p class="text-navy-400 text-xs font-semibold uppercase tracking-wider mb-1">Education</p>
+                    <p class="text-navy-700">{attorney.education}</p>
+                  </div>
+                  <div>
+                    <p class="text-navy-400 text-xs font-semibold uppercase tracking-wider mb-1">Bar Admissions</p>
+                    <p class="text-navy-700">{attorney.bar}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Case Results -->
+  <section class="bg-warm-100/50 py-20 md:py-24 border-y border-navy-100/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14 reveal">
+        <p class="section-label text-gold-600 mb-4 justify-center">Track Record</p>
+        <h2 class="font-display text-3xl md:text-4xl text-navy-950 mb-4">Notable Case Results</h2>
+        <p class="text-navy-500 max-w-xl mx-auto">
+          Past results do not guarantee future outcomes, but they demonstrate our commitment to fighting for every client.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 stagger-children">
+        <div class="bg-white rounded-lg p-8 border border-navy-100/50 text-center">
+          <p class="font-display text-4xl text-navy-950 mb-2">$4.2M</p>
+          <p class="text-gold-600 font-semibold text-sm mb-3">Personal Injury Settlement</p>
+          <p class="text-navy-500 text-sm leading-relaxed">Truck accident resulting in traumatic brain injury. Settled after 14 months of aggressive litigation.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 border border-navy-100/50 text-center">
+          <p class="font-display text-4xl text-navy-950 mb-2">$1.8M</p>
+          <p class="text-gold-600 font-semibold text-sm mb-3">Medical Malpractice Verdict</p>
+          <p class="text-navy-500 text-sm leading-relaxed">Jury verdict for surgical error resulting in permanent nerve damage. Case went to trial.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 border border-navy-100/50 text-center">
+          <p class="font-display text-4xl text-navy-950 mb-2">Not Guilty</p>
+          <p class="text-gold-600 font-semibold text-sm mb-3">Criminal Defense — Felony DUI</p>
+          <p class="text-navy-500 text-sm leading-relaxed">Client acquitted of all charges after we exposed procedural errors in the arresting officer's report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 reveal">
+      <div class="bg-navy-950 rounded-2xl overflow-hidden hero-pattern">
+        <div class="relative z-10 p-8 md:p-14 text-center">
+          <h2 class="font-display text-2xl md:text-3xl text-white mb-4">Ready to Discuss Your Case?</h2>
+          <p class="text-white/50 mb-8 max-w-lg mx-auto">
+            Schedule a free, confidential consultation with one of our attorneys. We'll review your situation and explain your options.
+          </p>
+          <a href="/contact/" class="btn-primary">Schedule Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
